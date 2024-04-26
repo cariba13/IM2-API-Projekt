@@ -26,6 +26,6 @@ async function fetchData(url) {
 
 }
 
-console.log(init());
+init();
 
 
