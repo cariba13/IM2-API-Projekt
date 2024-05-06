@@ -1,15 +1,9 @@
 const searchBar = document.querySelector('#searchInput');
 const page = document.querySelector('#page');
 let alleParkhauser = [];
-let parkhausName; 
-
 
 document.addEventListener('DOMContentLoaded', function() {
     init();
-
-
-    
-
 });
 
 
@@ -18,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
 async function init() {
     let url = `https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?limit=20`;
     parkhauserAlleDetails = await fetchData(url);
-    //console.log(parkhauserAlleDetails);
     alleParkhauser = parkhauserAlleDetails.results;
     alleParkhauser.forEach(parkhaus => {
         createKarte(parkhaus);
@@ -141,5 +134,4 @@ async function sucheParkhaus(suchbegriff){
         createKarte(parkhaus);
     });
 }
-
 
