@@ -1,10 +1,15 @@
 const searchBar = document.querySelector('#searchInput');
 const page = document.querySelector('#page');
 let alleParkhauser = [];
+let parkhausName; 
 
 
 document.addEventListener('DOMContentLoaded', function() {
     init();
+
+
+    
+
 });
 
 
@@ -18,6 +23,8 @@ async function init() {
     alleParkhauser.forEach(parkhaus => {
         createKarte(parkhaus);
     });  
+
+
 };
 
 
@@ -46,11 +53,30 @@ function createKarte(parkhaus){
 
     let karteName = document.createElement('div');
     karteName.className = 'parkhausName';
+    karteName.addEventListener('click', function(){
+        details.classList.toggle('detailAnzeige');
+    });
 
     let parkhausName = document.createElement('h2');
     parkhausName.textContent = parkhaus.title;
     karteName.appendChild(parkhausName);
 
+    let icon = document.createElement('div');
+    icon.className = 'icon';
+    if (parkhaus.auslastung_prozent >= 90){
+        icon.style.backgroundColor = 'red';
+    } 
+    else if(parkhaus.auslastung_prozent >= 70){
+        icon.style.backgroundColor = 'orange';
+    }
+    else if(parkhaus.auslastung_prozent >= 51){
+        icon.style.backgroundColor = 'yellow';
+    }
+    else {
+        icon.style.backgroundColor = 'green';
+    }
+    
+    karte.appendChild(icon);
     karte.appendChild(karteName);
     page.appendChild(karte);
 
@@ -58,7 +84,7 @@ function createKarte(parkhaus){
     //Details anzeigen
     
     let details = document.createElement('div');
-    details.className = 'details';
+    details.className = 'detailAnzeige';
 
     let detailAuflistung = document.createElement('ul');
     detailAuflistung.className = 'detailAuflistung';
@@ -69,21 +95,30 @@ function createKarte(parkhaus){
         detailAuflistung.appendChild(detailItemFree);
     
         let detailItemTotal = document.createElement('li');
-        detailItemTotal.textContent = `Total Plätze: ${parkhaus.total}`;
+        detailItemTotal.textContent = `Plätze Gesamt: ${parkhaus.total}`;
         detailAuflistung.appendChild(detailItemTotal);
     
         let detailItemLink = document.createElement('li');
-        detailItemLink.innerHTML = `Website: <a href="${parkhaus.link}">Zur Webseite</a>`;
+        detailItemLink.innerHTML = `<a href="${parkhaus.link}">Zur Webseite</a>`;
         detailAuflistung.appendChild(detailItemLink);
 
-        // let detailItemMaps = document.createElement('li');
-        // detailItemMaps.textContent = `Google Maps: ${Pfad zu zusätzlichem Info-File}`;
-        // detailAuflistung.appendChild(detailItemMaps);
+        let apiOutputId = parkhaus.id2;
+
+        let detailItemMaps = document.createElement('li');
+        detailItemMaps.innerHTML = mapLinks[apiOutputId];
+        detailAuflistung.appendChild(detailItemMaps);   
+
+        let detailItemZeiten = document.createElement('li');
+        detailItemZeiten.innerHTML = offnungszeiten[apiOutputId];
+        detailAuflistung.appendChild(detailItemZeiten);
+
 
         detailAuflistung.appendChild(detailItemFree);
         detailAuflistung.appendChild(detailItemTotal);
+        detailAuflistung.appendChild(detailItemZeiten);
         detailAuflistung.appendChild(detailItemLink);
-        // detailAuflistung.appendChild(detailItemMaps);
+        detailAuflistung.appendChild(detailItemMaps);
+        
     
 
     details.appendChild(detailAuflistung);
@@ -106,6 +141,5 @@ async function sucheParkhaus(suchbegriff){
         createKarte(parkhaus);
     });
 }
-
 
 
