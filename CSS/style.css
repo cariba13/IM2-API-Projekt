@@ -2,14 +2,8 @@ body{
     background-color: rgb(102, 162, 247);
 }
 
-
-.detailAnzeige{
-    display: none;
-}
-
-.parkhausKarte{
+.topRowDiv {
     display: flex;
-    flex-direction: row;
 }
 
 .icon{
@@ -19,12 +13,7 @@ body{
     background-image: url(/IMG/parking_icon.png);
     background-size: 40px;
     background-repeat: no-repeat;
-    background-position: center;;
-}
-
-.rightColumn {
-    display: flex;
-    flex-direction: column;
+    background-position: center;
 }
 
 .favoritIcon{
@@ -32,6 +21,7 @@ body{
     background: none;
     border: none;
     color: rgb(255, 255, 255);
+    background-color: brown; /* nacher wieder löschen */
 }
 
 .markedFavoritIcon{
@@ -39,5 +29,14 @@ body{
     background: none;
     border: none;
     color: rgb(255, 213, 0);
+    background-color: brown; /* nacher wieder löschen */
 }
 
+.detailAnzeige{
+    display: none;
+    flex-direction: row;
+}
+    
+.parkhausName {
+    background-color: grey  ; /* nacher wieder löschen */
+}

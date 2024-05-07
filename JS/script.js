@@ -51,6 +51,10 @@ function createKarte(parkhaus){
     let karte = document.createElement('div');
     karte.className = 'parkhausKarte';
 
+    let topRowDiv = document.createElement('div');
+    topRowDiv.className = 'topRowDiv';
+    karte.appendChild(topRowDiv);
+
     let karteName = document.createElement('div');
     karteName.className = 'parkhausName';
     karteName.addEventListener('click', function(){
@@ -84,9 +88,9 @@ function createKarte(parkhaus){
     //});    
 
     
-    karte.appendChild(icon);
-    karte.appendChild(karteName);
-    karte.appendChild(favoritIcon);
+    topRowDiv.appendChild(icon);
+    topRowDiv.appendChild(karteName);
+    topRowDiv.appendChild(favoritIcon);
     page.appendChild(karte);
 
 
