@@ -15,6 +15,8 @@ function zeigeKartenVollstandig(parkhauser){
             createKarte(parkhaus);
         }
     });
+    clickFavoritIcon();
+    markiereFavoritenIcons();
 }
 
 // Fetch data from API
@@ -25,8 +27,8 @@ async function init() {
     alleParkhauser = parkhauserAlleDetails.results;
     zeigeKartenVollstandig(alleParkhauser);
 
-    clickFavoritIcon();
     getFavoriten();
+    sortParkhauserByFavoriten();
 };
 
 
@@ -82,11 +84,7 @@ function createKarte(parkhaus){
 
     let favoritIcon = document.createElement('button');
     favoritIcon.className = 'favoritIcon';
-    favoritIcon.innerHTML = '&#9733;';
-    // favoritIcon.addEventListener('click', function(){
-    //     favoritIcon.classList.toggle('markedFavoritIcon');
-    //});    
-
+    favoritIcon.innerHTML = '&#9733;';  
     
     topRowDiv.appendChild(icon);
     topRowDiv.appendChild(karteName);
@@ -144,11 +142,11 @@ function createKarte(parkhaus){
 // Suchfunktion
 
 searchBar.addEventListener('input', function(){
-    sucheParkhaus(searchBar.value);
+    sucheParkhaus(searchBar.value.toLowerCase());
 })
 
 async function sucheParkhaus(suchbegriff){
-    let gefundenesParkhaus = alleParkhauser.filter(gesuchtesParkhaus => gesuchtesParkhaus.title.includes(suchbegriff));
+    let gefundenesParkhaus = alleParkhauser.filter(gesuchtesParkhaus => gesuchtesParkhaus.title.toLowerCase().includes(suchbegriff));
     page.innerHTML = '';
     zeigeKartenVollstandig(gefundenesParkhaus);
 }
@@ -157,7 +155,6 @@ async function sucheParkhaus(suchbegriff){
 
 // Sortierungsfunktion
 
-
 sortDropdown.addEventListener('change', function() {
     const selectedOption = sortDropdown.value;
     if (selectedOption === 'alphabet') {
@@ -165,10 +162,14 @@ sortDropdown.addEventListener('change', function() {
     } 
     else if (selectedOption === 'auslastung') {
         sortParkhauserByAuslastung();
-    } else if (selectedOption === 'entfernung') {
+    } 
+    else if (selectedOption === 'entfernung') {
         awaitCurrentLocation().then(currentPosition => {
             sortParkingByDistance(currentPosition);
         });
+    }
+    else if (selectedOption === 'favoriten') {
+        sortParkhauserByFavoriten();
     }
 });
 
@@ -184,13 +185,29 @@ function sortParkhauserByAuslastung() {
     zeigeKartenVollstandig(alleParkhauser);
 }
 
-
+function sortParkhauserByFavoriten() {
+    const favoritenParkhauserSet = new Set(favoritenParkhauser);
+    const sortedParkhauser = alleParkhauser.sort((a, b) => {
+        if (favoritenParkhauserSet.has(a.title) && !favoritenParkhauserSet.has(b.title)) {
+            return -1;
+        } 
+        else if (!favoritenParkhauserSet.has(a.title) && favoritenParkhauserSet.has(b.title)) {
+            return 1;
+        } 
+        else {
+            return 0;
+        }
+    });
+    page.innerHTML = '';
+    zeigeKartenVollstandig(sortedParkhauser);
+}
 
 
 
 
 
 // Favoritenfunktion
+
 function clickFavoritIcon() {
     const favoritIcon = document.querySelectorAll('.favoritIcon');
     favoritIcon.forEach(favIcon => {
@@ -202,7 +219,17 @@ function clickFavoritIcon() {
     });
 }
 
-
+function markiereFavoritenIcons() {
+    const favoritIcon = document.querySelectorAll('.favoritIcon');
+    favoritIcon.forEach(favIcon => {
+        const parkhausname = favIcon.parentNode.childNodes[1].textContent;
+        if (favoritenParkhauser.includes(parkhausname)) {
+            favIcon.classList.add('markedFavoritIcon');
+        } else {
+            favIcon.classList.remove('markedFavoritIcon');
+        }
+    });
+}
 
 
 function addFavorit (favoritbutton){
