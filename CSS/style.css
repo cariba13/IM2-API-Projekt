@@ -1,5 +1,5 @@
 body{
-    background-color: pink;
+    background-color: rgb(102, 162, 247);
 }
 
 
@@ -24,4 +24,20 @@ body{
 
 .rightColumn {
     display: flex;
-    flex-direction: column;}
+    flex-direction: column;
+}
+
+.favoritIcon{
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+}
+
+.markedFavoritIcon{
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: rgb(255, 213, 0);
+}
+
