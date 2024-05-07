@@ -1,5 +1,6 @@
 const searchBar = document.querySelector('#searchInput');
 const page = document.querySelector('#page');
+const sortDropdown = document.querySelector('#sortDropdown');
 let alleParkhauser = [];
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -35,7 +36,7 @@ async function fetchData(url) {
 
 
 
-// Karte erstellen
+// Parkhauskarten erstellen
 
 function createKarte(parkhaus){
 
@@ -134,4 +135,42 @@ async function sucheParkhaus(suchbegriff){
         createKarte(parkhaus);
     });
 }
+
+
+
+// Sortierungsfunktion
+
+
+sortDropdown.addEventListener('change', function() {
+    const selectedOption = sortDropdown.value;
+    if (selectedOption === 'alphabet') {
+        sortParkhauserAlphabetically();
+    } 
+    else if (selectedOption === 'auslastung') {
+        sortParkhauserByAuslastung();
+    }
+});
+
+function sortParkhauserAlphabetically() {
+    alleParkhauser.sort((a, b) => a.title.localeCompare(b.title));
+    page.innerHTML = '';
+    alleParkhauser.forEach(parkhaus => {
+        createKarte(parkhaus);
+    });
+}
+
+function sortParkhauserByAuslastung() {
+    alleParkhauser.sort((a, b) => a.auslastung_prozent - b.auslastung_prozent);
+    page.innerHTML = '';
+    alleParkhauser.forEach(parkhaus => {
+        createKarte(parkhaus);
+    });
+}
+
+
+
+
+
+
+
 
