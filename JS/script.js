@@ -70,21 +70,21 @@ function createKarte(parkhaus){
     let icon = document.createElement('div');
     icon.className = 'icon';
     if (parkhaus.auslastung_prozent >= 90){
-        icon.style.backgroundColor = 'red';
+        icon.style.backgroundColor = '#D95D41'; //red
     } 
     else if(parkhaus.auslastung_prozent >= 70){
-        icon.style.backgroundColor = 'orange';
+        icon.style.backgroundColor = '#F2994B'; //orange
     }
     else if(parkhaus.auslastung_prozent >= 51){
-        icon.style.backgroundColor = 'yellow';
+        icon.style.backgroundColor = '#F2D64F'; //yellow
     }
     else {
-        icon.style.backgroundColor = 'green';
+        icon.style.backgroundColor = '#B0D977'; //green
     }
 
     let favoritIcon = document.createElement('button');
     favoritIcon.className = 'favoritIcon';
-    favoritIcon.innerHTML = '&#9733;';  
+    favoritIcon.innerHTML = '&#9733;'; 
     
     topRowDiv.appendChild(icon);
     topRowDiv.appendChild(karteName);
@@ -102,6 +102,7 @@ function createKarte(parkhaus){
 
 
         let detailItemFree = document.createElement('li');
+        detailItemFree.className = 'freiePlatze';
         detailItemFree.textContent = `Freie Plätze: ${parkhaus.free}`;
         detailAuflistung.appendChild(detailItemFree);
     
@@ -110,7 +111,7 @@ function createKarte(parkhaus){
         detailAuflistung.appendChild(detailItemTotal);
     
         let detailItemLink = document.createElement('li');
-        detailItemLink.innerHTML = `<a href="${parkhaus.link}">Zur Webseite</a>`;
+        detailItemLink.innerHTML = `<a href="${parkhaus.link}">Zur Website</a>`;
         detailAuflistung.appendChild(detailItemLink);
 
         let apiOutputId = parkhaus.id2;
@@ -120,6 +121,7 @@ function createKarte(parkhaus){
         detailAuflistung.appendChild(detailItemMaps);   
 
         let detailItemZeiten = document.createElement('li');
+        detailItemZeiten.className = 'offnungszeiten';
         detailItemZeiten.innerHTML = offnungszeiten[apiOutputId];
         detailAuflistung.appendChild(detailItemZeiten);
 

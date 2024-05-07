@@ -1,42 +1,86 @@
 body{
     background-color: rgb(102, 162, 247);
+    font-family: Poppins, sans-serif;
+    font-weight: 300;
+    font-style: light;
+    background-color: white;
 }
 
+h2{
+    font-size: 1.3rem;
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    font-style: light;
+}
+.parkhausKarte{
+    background-color: rgb(235, 234, 234);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
 .topRowDiv {
     display: flex;
+    align-items: center;
 }
 
 .icon{
     width: 50px;
     height: 50px;
     border-radius: 10px;
+    margin-right: 10px;
     background-image: url(/IMG/parking_icon.png);
     background-size: 40px;
     background-repeat: no-repeat;
     background-position: center;
+    flex-grow:0;
+}
+
+.parkhausName {
+    /* background-color: grey  ; nacher wieder löschen */
+    flex-grow: 1;
 }
 
 .favoritIcon{
-    font-size: 30px;
+    font-size: 36px;
     background: none;
     border: none;
     color: rgb(255, 255, 255);
-    background-color: brown; /* nacher wieder löschen */
+    /* background-color: brown; nacher wieder löschen */
+    flex-grow: 0;
+    align-items: center;
+    padding-bottom: 7px;
 }
 
 .markedFavoritIcon{
-    font-size: 30px;
+    font-size: 36px;
     background: none;
     border: none;
     color: rgb(255, 213, 0);
-    background-color: brown; /* nacher wieder löschen */
+    flex-grow: 0;
+    align-items: center;
+    padding-bottom: 7px;
 }
+
+
 
 .detailAnzeige{
     display: none;
     flex-direction: row;
 }
-    
-.parkhausName {
-    background-color: grey  ; /* nacher wieder löschen */
+
+.detailAuflistung {
+    list-style-type: none;
+    padding-left: 60px;
+    margin-top: 8px;
 }
+
+.freiePlatze{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.offnungszeiten{
+    margin-bottom: 8px;
+}
+
