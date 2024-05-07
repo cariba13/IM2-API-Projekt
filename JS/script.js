@@ -2,9 +2,11 @@ const searchBar = document.querySelector('#searchInput');
 const page = document.querySelector('#page');
 const sortDropdown = document.querySelector('#sortDropdown');
 let alleParkhauser = [];
+let favoritenParkhauser = [];
 
 document.addEventListener('DOMContentLoaded', function() {
     init();
+    
 });
 
 
@@ -18,7 +20,8 @@ async function init() {
         createKarte(parkhaus);
     });  
 
-
+    clickFavoritIcon();
+    getFavoriten();
 };
 
 
@@ -40,10 +43,8 @@ async function fetchData(url) {
 
 function createKarte(parkhaus){
 
-    console.log(parkhaus);
-
     let karte = document.createElement('div');
-    karte.classsName = 'parkhausKarte';
+    karte.className = 'parkhausKarte';
 
     let karteName = document.createElement('div');
     karteName.className = 'parkhausName';
@@ -69,9 +70,18 @@ function createKarte(parkhaus){
     else {
         icon.style.backgroundColor = 'green';
     }
+
+    let favoritIcon = document.createElement('button');
+    favoritIcon.className = 'favoritIcon';
+    favoritIcon.innerHTML = '&#9733;';
+    // favoritIcon.addEventListener('click', function(){
+    //     favoritIcon.classList.toggle('markedFavoritIcon');
+    //});    
+
     
     karte.appendChild(icon);
     karte.appendChild(karteName);
+    karte.appendChild(favoritIcon);
     page.appendChild(karte);
 
 
@@ -166,6 +176,64 @@ function sortParkhauserByAuslastung() {
         createKarte(parkhaus);
     });
 }
+
+
+
+
+
+
+
+// Favoritenfunktion
+function clickFavoritIcon() {
+    const favoritIcon = document.querySelectorAll('.favoritIcon');
+    favoritIcon.forEach(favIcon => {
+        favIcon.addEventListener('click', function() {
+            this.classList.toggle('markedFavoritIcon');
+            console.log('Favorit markiert');
+            addFavorit(this);
+        });
+    });
+}
+
+
+
+
+function addFavorit (favoritbutton){
+    let parkhausname = favoritbutton.parentNode.childNodes[1].textContent;
+    
+    if (favoritenParkhauser.includes(parkhausname)) {
+        let index = favoritenParkhauser.indexOf(parkhausname);
+        favoritenParkhauser.splice(index, 1);
+    } else {
+        favoritenParkhauser.push(parkhausname);
+    }
+
+    //write favoritenParkhauser in localstorage
+    localStorage.setItem('favoritenParkhauser', JSON.stringify(favoritenParkhauser));
+}
+
+ 
+function getFavoriten(){
+    let favoriten = localStorage.getItem('favoritenParkhauser');
+    if (favoriten){
+        favoritenParkhauser = JSON.parse(favoriten);
+
+        let parkhausNameNodes = document.querySelectorAll(`.parkhausName`);
+
+
+        favoritenParkhauser.forEach(favorit => {
+            //if element on page with class "parkhausName" has textContent equal to favorit, add class "markedFavoritIcon" to sibling element with class "favoritIcon"
+            parkhausNameNodes.forEach(parkhausName => {
+                if (parkhausName.textContent === favorit) {
+                    let favoritIcon = parkhausName.nextElementSibling;
+                    favoritIcon.classList.add('markedFavoritIcon');
+                    return;
+                } 
+            });
+        });
+    }
+}
+
 
 
 
