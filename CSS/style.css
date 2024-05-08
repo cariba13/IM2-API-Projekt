@@ -16,12 +16,11 @@ body{
     background-position: center;
 }
 
-.favoritIcon{
+.favoritIcon {
     font-size: 30px;
     background: none;
     border: none;
     color: rgb(255, 255, 255);
-    background-color: brown; /* nacher wieder löschen */
 }
 
 .markedFavoritIcon{

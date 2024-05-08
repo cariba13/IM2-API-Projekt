@@ -84,7 +84,7 @@ function createKarte(parkhaus){
 
     let favoritIcon = document.createElement('button');
     favoritIcon.className = 'favoritIcon';
-    favoritIcon.innerHTML = '&#9733;';  
+    favoritIcon.innerHTML = '&#9734;';  
     
     topRowDiv.appendChild(icon);
     topRowDiv.appendChild(karteName);
