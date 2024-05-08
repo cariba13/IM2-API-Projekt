@@ -111,13 +111,14 @@ function createKarte(parkhaus){
         detailAuflistung.appendChild(detailItemTotal);
     
         let detailItemLink = document.createElement('li');
-        detailItemLink.innerHTML = `<a href="${parkhaus.link}">Zur Website</a>`;
+        detailItemLink.innerHTML = `<a href="${parkhaus.link}" target="_blank">Zur Website</a>`;
         detailAuflistung.appendChild(detailItemLink);
 
         let apiOutputId = parkhaus.id2;
 
         let detailItemMaps = document.createElement('li');
-        detailItemMaps.innerHTML = mapLinks[apiOutputId];
+        console.log(mapLinks[apiOutputId]);
+        detailItemMaps.innerHTML = `<a href='${mapLinks[apiOutputId]}' target='_blank'>In Google Maps anzeigen</a>`;
         detailAuflistung.appendChild(detailItemMaps);   
 
         let detailItemZeiten = document.createElement('li');

@@ -1,6 +1,6 @@
 const mapLinks = {
  
-    "badbahnhof": '<a href="https://maps.app.goo.gl/umBj71JXJfTP4ryL7">In Google Maps anzeigen</a>',
+    "badbahnhof": 'https://maps.app.goo.gl/umBj71JXJfTP4ryL7',
     "claramatte": '<a href="https://maps.app.goo.gl/818MZtHxZZb4mrGGA">In Google Maps anzeigen</a>',
     "steinen": '<a href="https://maps.app.goo.gl/MZ4597qR6tq33g4N8">In Google Maps anzeigen</a>',
     "city": '<a href="https://maps.app.goo.gl/MZ4597qR6tq33g4N8">In Google Maps anzeigen</a>',
