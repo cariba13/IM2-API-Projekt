@@ -100,6 +100,34 @@ h2{
 }
 
 
+footer {
+    margin: 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+}
+
+
+.legend-item::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color);
+    margin-right: 5px;
+}
+
+.legend-item {
+    font-size: 14px;
+}
+
+.footerText a:hover{
+    color: rgb(0, 64, 255);
+    cursor: pointer;
+}
+
+
 
 
 
@@ -146,4 +174,42 @@ h2{
     padding-left: 70.5px
   }
 
-  }
+
+footer{
+    display: flex;
+    flex-direction: row;
+}
+
+.footerText{
+    margin-left: auto;
+}
+
+.legend {
+    display: flex;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Abstand zwischen den Legendenelementen */
+}
+
+.legend-item::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color);
+    margin-right: 5px;
+}
+
+.legend-item {
+    font-size: 14px;
+}
+
+.footerText a:hover{
+    color: rgb(0, 64, 255);
+    cursor: pointer;
+}
+
+}

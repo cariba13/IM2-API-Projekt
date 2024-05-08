@@ -1,0 +1,114 @@
+.teamContainer {
+    display: flex;
+    flex-direction: column; /* Anordnung der Boxen untereinander */
+    align-items: center; /* Zentriert die Boxen horizontal */
+}
+
+.boxCarina,
+.boxSimone {
+    width: calc(100% - 40px); /* Maximale Breite der Boxen */
+    max-width: 400px; /* Maximale Breite der Boxen */
+    background-color: rgb(235, 234, 234);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Abstand zwischen den Boxen */
+}
+
+.boxCarina img,
+.boxSimone img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+}
+
+.infos {
+    max-width: calc(100% - 40px);
+    margin-left: 0; /* Links bündig */
+    margin-top: 20px;
+}
+
+.name {
+    margin-top: 0;
+    margin-bottom: 10px; /* Abstand unter dem Namen */
+    font-size: 24px; /* Kleinere Schriftgröße */
+}
+
+.infos p {
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    background-color: rgb(235, 234, 234);
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.buttons:hover{
+    background-color: rgb(192, 192, 192);
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+@media (min-width: 600px) {
+    html {
+      font-size: 16px;
+    }
+
+
+    .teamContainer {
+        display: flex;
+        justify-content: center; /* Boxen nebeneinander mit gleichmäßigem Abstand */
+        flex-direction: row;
+        align-items: flex-start;
+
+    }
+    
+    .boxCarina,
+    .boxSimone {
+        width: calc(100% - 10px); /* 60% Breite minus 10px für den Abstand zwischen den Boxen */
+        background-color: rgb(235, 234, 234); /* Dunkelgrauer Hintergrund */
+        padding: 20px; /* Innenabstand */
+        box-sizing: border-box; /* Padding wird nicht zur Breite hinzugefügt */
+        border-radius: 10px;
+        margin: 20px;
+    }
+    
+    .boxCarina img,
+    .boxSimone img {
+        display: block;
+        margin: 0 auto; /* Zentriert das Bild horizontal */
+        width: calc(100% - 20px); /* Bildbreite 100% minus doppelter Innenabstand */
+        max-width: 100%; /* Bild wird nicht über die Box hinaus skaliert */
+    }
+    
+    .infos {
+        max-width: calc(100% - 20px); /* Maximale Breite des Infoblocks */
+        margin-left: 15px;
+        margin-top: 20px; /* Abstand zum Bild */
+    }
+
+    .name{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 30px;
+    }
+    
+    .infos p {
+        margin-top: 10px; /* Abstand zwischen Aufgabenliste und Erklärtext */
+        max-width: calc(100% - 20px); /* Maximale Breite des Erklärtextes */
+    }
+
+}
