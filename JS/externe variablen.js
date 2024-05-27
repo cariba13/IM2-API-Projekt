@@ -1,3 +1,11 @@
+
+// __________________________________________________________________________________________________________________________
+// Externe Daten: Diese Datei enthält externe Daten für jedes Parkhaus, welche nicht aus der API abgegriffen werden können.
+// __________________________________________________________________________________________________________________________
+
+
+// Google Maps Links für jedes Parkhaus, abgerufen von Google Maps ----------------------------------------------------------
+
 const mapLinks = {
  
     "badbahnhof": 'https://maps.app.goo.gl/umBj71JXJfTP4ryL7',
@@ -17,6 +25,10 @@ const mapLinks = {
     "anfos": 'https://maps.app.goo.gl/85AxkFctuQHcB9eC8',
     "centralbahnparking": 'https://maps.app.goo.gl/cWw1F5Mt4U5o1DjQ8',
 }
+
+
+
+// Öffnungszeiten für jedes Parkhaus, abgerufen von der offiziellen Website der Parkhäuser -----------------------------------
 
 const offnungszeiten ={
     "badbahnhof": "Geöffnet: 24 Stunden, täglich",
