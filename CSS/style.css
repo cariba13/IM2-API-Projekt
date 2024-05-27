@@ -15,6 +15,7 @@ header{
     position: sticky;
     top: 0px;
     border: white 15px solid;
+    z-index: 1;
 }
 
 h1{
@@ -60,7 +61,16 @@ h2{
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
+    transition: transform 0.3s;
+    position: relative; /* Ermöglicht die Verwendung von z-index */
+    z-index: 0; 
 }
+
+.parkhausKarte:hover {
+    transform: translateY(-5px); 
+    background-color: rgb(223, 220, 220);
+  }
+
 .topRowDiv {
     display: flex;
     align-items: center;
@@ -96,11 +106,17 @@ h2{
     padding-right: 10px;
 }
 
+.favoritIcon:hover{
+    font-size: 38px;
+    cursor: pointer;
+    color: #3537a5;
+}
+
 .markedFavoritIcon{
     font-size: 36px;
     background: none;
     border: none;
-    color: rgb(255, 213, 0);
+    color: #212274;
     flex-basis: auto;
     align-items: center;
     padding-bottom: 7px;
@@ -158,20 +174,16 @@ footer{
     border-radius: 10px;
 }
 
-.footerText a{
+.footerText a {
     color: white;
     text-decoration: underline;
-
 }
 
-.footerText a:hover{
-    color: rgb(0, 64, 255);
+.footerText a:hover {
     cursor: pointer;
-    text-decoration: none;
+    color: white !important; 
+    font-weight: 500;
 }
-
-
-
 
 
   /* Medium devices (tablets, 600px and up) */
@@ -179,7 +191,6 @@ footer{
     html {
       font-size: 16px;
     }
-  
 
   }
   
@@ -251,7 +262,7 @@ footer{
 }
 
 .footerText a:hover{
-    color: rgb(0, 64, 255);
+    color: white;
     cursor: pointer;
 }
 
