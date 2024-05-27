@@ -26,13 +26,6 @@ header{
     z-index: 0; 
 }
 
-.boxCarina:hover,
-.boxSimone:hover{
-    transform: translateY(-5px); 
-    background-color: rgb(214, 213, 213);
-}
-
-
 .boxCarina img,
 .boxSimone img {
     display: block;
@@ -74,12 +67,6 @@ footer .buttons{
     color: white;
 }
 
-.buttons:hover{
-    color: white;
-    cursor: pointer;
-    font-weight: 500;
-}
-
 
 
 
@@ -104,6 +91,12 @@ footer .buttons{
         box-sizing: border-box; /* Padding wird nicht zur Breite hinzugefügt */
         border-radius: 10px;
         margin: 20px;
+    }
+
+    .boxCarina:hover,
+    .boxSimone:hover{
+    transform: translateY(-5px); 
+    background-color: rgb(214, 213, 213);
     }
     
     .boxCarina img,
@@ -137,5 +130,11 @@ footer .buttons{
         padding: 15px;
         height: 60px;
         align-items: center;
+    }
+
+    .buttons:hover{
+        color: white;
+        cursor: pointer;
+        font-weight: 500;
     }
 }

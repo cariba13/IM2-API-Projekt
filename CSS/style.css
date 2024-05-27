@@ -61,12 +61,12 @@ h2{
     transition: transform 0.3s;
     position: relative; /* Ermöglicht die Verwendung von z-index */
     z-index: 0; 
+    transition: background-color 0.4s ease
 }
 
-.parkhausKarte:hover {
-    transform: translateY(-5px); 
-    background-color: rgb(223, 220, 220);
-  }
+.parkhausKarte:active{
+    background-color: rgb(207, 207, 207);
+}
 
 .topRowDiv {
     display: flex;
@@ -102,13 +102,7 @@ h2{
     padding-right: 10px;
 }
 
-.favoritIcon:hover{
-    font-size: 38px;
-    cursor: pointer;
-    color: #3537a5;
-}
-
-.markedFavoritIcon{ /* Favoriten Icon wenn ausgewählt */
+.markedFavoritIcon { /* Favoriten Icon wenn ausgewählt */
     font-size: 36px;
     background: none;
     border: none;
@@ -173,12 +167,6 @@ footer{
     text-decoration: underline;
 }
 
-.footerText a:hover {
-    cursor: pointer;
-    color: white !important; 
-    font-weight: 500;
-}
-
 
 
 
@@ -211,6 +199,11 @@ footer{
     padding: 20px;
     }
 
+  .parkhausKarte:hover {
+    transform: translateY(-5px); 
+    background-color: rgb(223, 220, 220);
+    }
+
   .parkhausName{
     padding-left: 20px;
     }
@@ -224,6 +217,11 @@ footer{
     padding-left: 70.5px
     }
 
+  .favoritIcon:hover{
+    font-size: 38px;
+    cursor: pointer;
+    color: #3537a5;
+    }    
 
     footer{
     display: flex;
@@ -241,7 +239,7 @@ footer{
     .legend-item {
     display: flex;
     align-items: center;
-    margin-right: 20px; /* Abstand zwischen den Legendenelementen */
+    margin-right: 20px; 
     }
 
     .legend-item::before {
@@ -257,9 +255,10 @@ footer{
     font-size: 14px;
     }
 
-.footerText a:hover{
-    color: white;
+    .footerText a:hover {
     cursor: pointer;
-}
+    color: white; 
+    font-weight: 500;
+    }   
 
 }
