@@ -80,7 +80,7 @@ footer .buttons{
         display: flex;
         justify-content: center; /* Boxen nebeneinander mit gleichmäßigem Abstand */
         flex-direction: row;
-        align-items: flex-start;
+        align-items: stretch; /* Boxen gleiche Höhe */
     }
     
     .boxCarina,

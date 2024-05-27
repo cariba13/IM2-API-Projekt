@@ -168,7 +168,11 @@ searchBar.addEventListener('input', function(){
 async function sucheParkhaus(suchbegriff){
     let gefundenesParkhaus = alleParkhauser.filter(gesuchtesParkhaus => gesuchtesParkhaus.title.toLowerCase().includes(suchbegriff));
     page.innerHTML = '';
-    zeigeKartenVollstandig(gefundenesParkhaus);
+
+    if (gefundenesParkhaus.length === 0) {
+        page.innerHTML = '<p>Keine Ergebnisse gefunden</p>';
+    } else {zeigeKartenVollstandig(gefundenesParkhaus);
+    }
 }
 // -----------------------------------------------------------------------------------------------------------------------------
 
