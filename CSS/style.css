@@ -6,8 +6,7 @@ body{
 }
 
 
-/* Media Queries: Mobile first */
-
+/* -------------------------------------Mobile-first-design -------------------------------------*/
 header{
     background-color: #212274;
     padding-bottom: 10px;
@@ -44,8 +43,6 @@ h1{
     height: 20px;
     width: 150px;
 }
-
-
 
 h2{
     font-size: 1.3rem;
@@ -94,8 +91,7 @@ h2{
     padding-left: 10px;
 }
 
-
-.favoritIcon{
+.favoritIcon{ /* Favoriten Icon Idle */
     font-size: 36px;
     background: none;
     border: none;
@@ -112,7 +108,7 @@ h2{
     color: #3537a5;
 }
 
-.markedFavoritIcon{
+.markedFavoritIcon{ /* Favoriten Icon wenn ausgewählt */
     font-size: 36px;
     background: none;
     border: none;
@@ -143,7 +139,6 @@ h2{
     margin-bottom: 8px;
 }
 
-
 footer {
     margin: 20px;
     margin-top: 30px;
@@ -151,7 +146,6 @@ footer {
     flex-direction: column; 
     justify-content: flex-start; 
 }
-
 
 .legend-item::before {
     content: "";
@@ -186,20 +180,22 @@ footer{
 }
 
 
-  /* Medium devices (tablets, 600px and up) */
-  @media (min-width: 600px) {
+
+
+/* ------------------------------- Media Query for Medium devices (tablets, 600px and up) ----------------------------------------*/
+@media (min-width: 600px) {
     html {
       font-size: 16px;
     }
+}
 
-  }
-  
-  
-  
-  /* Large devices (desktops, 1200px and up) */
-  @media (min-width: 1200px) {
+
+
+
+/* ------------------------------- Media Query for Large devices (desktops, 1200px and up) --------------------------------------*/
+@media (min-width: 1200px) {
     html {
-      font-size: 18px;
+    font-size: 18px;
     }
 
   .cardParkhausContainer{
@@ -207,59 +203,59 @@ footer{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-  }
+    }
 
   .parkhausKarte{
     width: 400px;
     height: 250px;
     padding: 20px;
-  }
+    }
 
   .parkhausName{
     padding-left: 20px;
-  }
+    }
   
   .detailAnzeige{
-     display: grid;
-     flex-direction: row;
+    display: grid;
+    flex-direction: row;
     }
 
    .detailAuflistung {
     padding-left: 70.5px
-  }
+    }
 
 
-footer{
+    footer{
     display: flex;
     flex-direction: row;
-}
+    }
 
-.footerText{
+    .footerText{
     margin-left: auto;
-}
+    }
 
-.legend {
+    .legend {
     display: flex;
-}
+    }
 
-.legend-item {
+    .legend-item {
     display: flex;
     align-items: center;
     margin-right: 20px; /* Abstand zwischen den Legendenelementen */
-}
+    }
 
-.legend-item::before {
+    .legend-item::before {
     content: "";
     display: inline-block;
     width: 20px;
     height: 20px;
     background-color: var(--color);
     margin-right: 5px;
-}
+    }
 
-.legend-item {
+    .legend-item {
     font-size: 14px;
-}
+    }
 
 .footerText a:hover{
     color: white;
